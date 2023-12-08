@@ -1,45 +1,31 @@
 <script setup lang="ts">
-/*Call Components*/
- import SalesOverview from '@/components/dashboard/SalesOverview.vue';
-import YearlyBreakup from '@/components/dashboard/YearlyBreakup.vue';
-import MonthlyEarning from '@/components/dashboard/MonthlyEarnings.vue';
-import RecentTransaction from '@/components/dashboard/RecentTransaction.vue';
-import ProductPerformance from '@/components/dashboard/ProductPerformance.vue';
-import ProductCards from '@/components/dashboard/ProductCards.vue';
+/*-For Set Blank Layout-*/
+definePageMeta({
+  layout: "blank",
+});
 </script>
 <template>
-    <v-row>
-        <v-col cols="12">
-            <v-row>
-                <!-- Sales overview -->
-                <v-col cols="12" lg="8">
-                    <SalesOverview />
-                </v-col>
-                <!-- Yearly Breakup / Monthly Earnings -->
-                <v-col cols="12" lg="4">
-                    <div class="mb-6">
-                        <YearlyBreakup />
-                    </div>
-                    <div>
-                        <MonthlyEarning />
-                    </div>
-                </v-col>
-                <!-- Recent transaction -->
-                <v-col cols="12" lg="4">
-                    <RecentTransaction />
-                </v-col>
-                <!-- Product performence -->
-                <v-col cols="12" lg="8">
-                    <ProductPerformance />
-                </v-col>
-                <!-- Product Cards -->
-                <v-col cols="12">
-                    <ProductCards />
+    <div class="authentication">
+        <v-container fluid class="pa-3">
+            <v-row class="h-100vh d-flex justify-center align-center">
+                <v-col cols="12" lg="4" xl="3" class="d-flex align-center">
+                    <v-card rounded="md" elevation="10" class="px-sm-1 px-0 withbg mx-auto" max-width="500">
+                        <v-card-item class="pa-sm-8">
+                            <div class="d-flex justify-center py-4">
+                                <LayoutFullLogo />
+                            </div>
+                            <div class="text-body-1 text-muted text-center mb-3">Your Social Campaigns</div>
+                            <AuthLoginForm />
+                            <h6 class="text-h6 text-muted font-weight-medium d-flex justify-center align-center mt-3">
+                                New to Modernize?
+                                <NuxtLink to="/auth/register"
+                                    class="text-primary text-decoration-none text-body-1 opacity-1 font-weight-medium pl-2">
+                                    Create an account</NuxtLink>
+                            </h6>
+                        </v-card-item>
+                    </v-card>
                 </v-col>
             </v-row>
-        </v-col>
-        <v-col class="text-center mt-2">
-            <p class="text-muted">Design and Developed by <a flat variant="text" href="https://adminmart.com/" target="_blank" class="pl-1 text-primary">AdminMart.com</a></p>
-        </v-col>
-    </v-row>
+        </v-container>
+    </div>
 </template>
